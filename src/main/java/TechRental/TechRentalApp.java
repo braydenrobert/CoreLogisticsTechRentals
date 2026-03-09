@@ -53,7 +53,7 @@ public class TechRentalApp extends Application {
         ObservableList<Items> inventory = FXCollections.observableArrayList(dataItems);
         tableView.setItems(inventory);
 
-        Scene scene = new Scene (root, 800, 600);
+        Scene scene = new Scene (root, 600, 400);
         stage.setTitle("Tech Rental");
         stage.setScene(scene);
         stage.show();
