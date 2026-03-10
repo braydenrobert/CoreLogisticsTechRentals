@@ -54,7 +54,7 @@ public class TechRentalApp extends Application {
 
 
         RentTab rentTab = new RentTab();
-        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/resources/images/rent.png")));
+        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png")));
         rentImage.setFitHeight(12);
         rentImage.setFitWidth(12);
         rentTab.setGraphic(rentImage);
