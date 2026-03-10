@@ -1,8 +1,5 @@
 package TechRental;
-import TechRental.tabs.AddItemTab;
-import TechRental.tabs.AnalyticTab;
-import TechRental.tabs.HomeTab;
-import TechRental.tabs.RentTab;
+import TechRental.tabs.*;
 import javafx.application.Application;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -47,15 +44,11 @@ public class TechRentalApp extends Application {
 
         TabPane tabPane = new TabPane();
 
-
-        AddItemTab addItemTab = new AddItemTab();
-
         HomeTab homeTab = new HomeTab();
         ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png")));
         homeImage.setFitHeight(24);
         homeImage.setFitWidth(24);
         homeTab.setGraphic(homeImage);
-
 
         RentTab rentTab = new RentTab();
         ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png")));
@@ -63,17 +56,22 @@ public class TechRentalApp extends Application {
         rentImage.setFitWidth(24);
         rentTab.setGraphic(rentImage);
 
+        AdminTab adminTab = new AdminTab();
+        ImageView adminImage = new ImageView(new Image(getClass().getResourceAsStream("/images/admin.png")));
+        adminImage.setFitHeight(24);
+        adminImage.setFitWidth(24);
+        adminTab.setGraphic(adminImage);
+
         AnalyticTab analyticTab = new AnalyticTab();
         ImageView analyticImage = new ImageView(new Image(getClass().getResourceAsStream("/images/analytic.png")));
         analyticImage.setFitHeight(24);
         analyticImage.setFitWidth(24);
         analyticTab.setGraphic(analyticImage);
 
-
         tabPane.getTabs().addAll(
                 homeTab,
                 rentTab,
-                addItemTab,
+                adminTab,
                 analyticTab
         );
 
