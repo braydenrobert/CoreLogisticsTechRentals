@@ -32,12 +32,6 @@ public class TechRentalApp extends Application {
             System.exit(0);
         });
 
-        HBox searchBox = new HBox(10);
-        TextField searchName = new TextField();
-        searchName.setPromptText("Search");
-        searchBox.getChildren().add(searchName);
-        root.setTop(searchBox);
-
         TabPane tabPane = new TabPane();
 
         AddItemTab addItemTab = new AddItemTab();

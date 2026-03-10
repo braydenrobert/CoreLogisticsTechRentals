@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -43,7 +45,7 @@ public class RentTab extends Tab {
         dataItems.add(new Items("NA", 0.00, "NA"));
         dataItems.add(new Items("NA", 0.00, "NA"));
 
-        ObservableList<Items> inventory = FXCollections.observableArrayList(dataItems);
+        inventory = FXCollections.observableArrayList(dataItems);
         tableView.setItems(inventory);
 
         TableColumn<Items, String> nameCol = new TableColumn<>("Name");
@@ -57,7 +59,26 @@ public class RentTab extends Tab {
 
         tableView.getColumns().addAll(nameCol, priceCol, categoryCol);
 
-        VBox layout = new VBox(tableView);
+
+        TextField searchName = new TextField();
+        searchName.setPromptText("Item Name");
+
+        searchName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
+                tableView.setItems(inventory);
+                return;
+            }
+
+            ObservableList<Items> nameFilter = FXCollections.observableArrayList();
+            for (Items item : inventory) {
+                if (item.getName().toLowerCase().contains(newValue.toLowerCase())) {
+                    nameFilter.add(item);
+                }
+            }
+            tableView.setItems(nameFilter);
+        });
+
+        VBox layout = new VBox(tableView, searchName);
         this.setContent(layout);
 
     }
