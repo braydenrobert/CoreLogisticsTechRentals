@@ -20,23 +20,6 @@ import java.util.ArrayList;
 
 public class TechRentalApp extends Application {
 
-    public static class Items {
-        private String name;
-        private double price;
-        private String category;
-
-        public Items(String name, double price, String category) {
-            this.name = name;
-            this.price = price;
-            this.category = category;
-        }
-
-        public String getName() { return name; }
-        public double getPrice() { return price; }
-        public String getCategory() { return category; }
-
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         BorderPane root = new BorderPane();
@@ -81,33 +64,6 @@ public class TechRentalApp extends Application {
         searchName.setPromptText("Search");
         searchBox.getChildren().add(searchName);
         root.setTop(searchBox);
-
-
-        TableView<Items> tableView = new TableView<>();
-        ArrayList<Items> dataItems = new ArrayList<>();
-
-        dataItems.add(new Items("NA", 0.00, "NA"));
-        dataItems.add(new Items("NA", 0.00, "NA"));
-        dataItems.add(new Items("NA", 0.00, "NA"));
-
-        /*
-        https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TableView.html
-         */
-
-        ObservableList<Items> inventory = FXCollections.observableArrayList(dataItems);
-        tableView.setItems(inventory);
-
-        TableColumn<Items, String> nameCol = new TableColumn<>("Name");
-        nameCol.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getName()));
-
-        TableColumn<Items, Double> priceCol = new TableColumn<>("Price");
-        priceCol.setCellValueFactory(p -> new SimpleDoubleProperty(p.getValue().getPrice()).asObject());
-
-        TableColumn<Items, String> categoryCol = new TableColumn<>("Category");
-        categoryCol.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getCategory()));
-
-        tableView.getColumns().addAll(nameCol, priceCol, categoryCol);
-        root.setCenter(tableView);
 
         Scene scene = new Scene (root, 500, 300);
         stage.setTitle("Tech Rental");
