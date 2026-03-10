@@ -1,10 +1,6 @@
 package TechRental;
 import TechRental.tabs.*;
 import javafx.application.Application;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,10 +8,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
+import TechRental.tabs.AddItemTab;
+import TechRental.tabs.RemoveItemTab;
 
 public class TechRentalApp extends Application {
 
@@ -44,6 +40,9 @@ public class TechRentalApp extends Application {
 
         TabPane tabPane = new TabPane();
 
+        AddItemTab addItemTab = new AddItemTab();
+        RemoveItemTab removeItemTab = new RemoveItemTab();
+
         HomeTab homeTab = new HomeTab();
         ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png")));
         homeImage.setFitHeight(24);
@@ -56,7 +55,7 @@ public class TechRentalApp extends Application {
         rentImage.setFitWidth(24);
         rentTab.setGraphic(rentImage);
 
-        AdminTab adminTab = new AdminTab();
+        AdminTab adminTab = new AdminTab(rentTab, addItemTab, removeItemTab);
         ImageView adminImage = new ImageView(new Image(getClass().getResourceAsStream("/images/admin.png")));
         adminImage.setFitHeight(24);
         adminImage.setFitWidth(24);
