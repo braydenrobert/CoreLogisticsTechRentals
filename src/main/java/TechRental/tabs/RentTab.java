@@ -31,7 +31,7 @@ public class RentTab extends Tab {
 
     }
 
-    TableView<Items> tableView = new TableView<>();
+    private TableView<Items> tableView = new TableView<>();
     private ObservableList<Items> inventory;
 
     public RentTab() {
@@ -64,5 +64,9 @@ public class RentTab extends Tab {
 
     public ObservableList<Items> getInventory() {
         return inventory;
+    }
+
+    public TableView<Items> getTableView() {
+        return tableView;
     }
 }
