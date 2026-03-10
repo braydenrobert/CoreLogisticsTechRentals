@@ -4,6 +4,5 @@ import javafx.scene.control.Tab;
 
 public class AnalyticTab extends Tab {
     public AnalyticTab() {
-        this.setText("Analytic");
     }
 }
