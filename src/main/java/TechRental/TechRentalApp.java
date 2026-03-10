@@ -1,9 +1,14 @@
 package TechRental;
+import TechRental.tabs.AddItemTab;
+import TechRental.tabs.AnalyticTab;
+import TechRental.tabs.HomeTab;
+import TechRental.tabs.RentTab;
 import javafx.application.Application;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -39,19 +44,37 @@ public class TechRentalApp extends Application {
         MenuBar menuBar = new MenuBar();
 
         Menu menuFile = new Menu("File");
-        Menu menuHelp = new Menu("Help");
+        Menu menuCredits = new Menu("Credits");
 
         MenuItem menuExit = new MenuItem("Exit");
         menuFile.getItems().add(menuExit);
 
-        VBox sidetab = new VBox(10);
-        sidetab.getChildren().addAll(
-                new Button("Home"),
-                new Button("Rent"),
-                new Button("Admin"),
-                new Button("Analytics")
+        menuBar.getMenus().addAll(menuFile, menuCredits);
+        menuExit.setOnAction(e->{
+            System.exit(0);
+        });
+
+        TabPane tabPane = new TabPane();
+
+        HomeTab homeTab = new HomeTab();
+        RentTab rentTab = new RentTab();
+        AddItemTab addItemTab = new AddItemTab();
+        AnalyticTab analyticTab = new AnalyticTab();
+
+        tabPane.getTabs().addAll(
+                homeTab,
+                rentTab,
+                addItemTab,
+                analyticTab
         );
-        root.setLeft(sidetab);
+
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+
+        root.setTop(menuBar);
+
+        tabPane.setSide(Side.LEFT);
+        root.setCenter(tabPane);
+
 
         HBox searchBox = new HBox(10);
         TextField searchName = new TextField();
