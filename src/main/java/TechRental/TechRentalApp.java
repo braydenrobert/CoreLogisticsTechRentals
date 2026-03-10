@@ -67,7 +67,7 @@ public class TechRentalApp extends Application {
         ImageView analyticImage = new ImageView(new Image(getClass().getResourceAsStream("/images/analytic.png")));
         analyticImage.setFitHeight(24);
         analyticImage.setFitWidth(24);
-        rentTab.setGraphic(analyticImage);
+        analyticTab.setGraphic(analyticImage);
 
 
         tabPane.getTabs().addAll(
