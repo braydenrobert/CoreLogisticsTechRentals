@@ -35,7 +35,6 @@ public class RentTab extends Tab {
     private ObservableList<Items> inventory;
 
     public RentTab() {
-        this.setText("Rentals");
 
         tableView = new TableView<>();
 

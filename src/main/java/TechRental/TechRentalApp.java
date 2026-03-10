@@ -47,16 +47,21 @@ public class TechRentalApp extends Application {
 
         TabPane tabPane = new TabPane();
 
-        HomeTab homeTab = new HomeTab();
 
         AddItemTab addItemTab = new AddItemTab();
         AnalyticTab analyticTab = new AnalyticTab();
 
+        HomeTab homeTab = new HomeTab();
+        ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png")));
+        homeImage.setFitHeight(24);
+        homeImage.setFitWidth(24);
+        homeTab.setGraphic(homeImage);
+
 
         RentTab rentTab = new RentTab();
         ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png")));
-        rentImage.setFitHeight(12);
-        rentImage.setFitWidth(12);
+        rentImage.setFitHeight(24);
+        rentImage.setFitWidth(24);
         rentTab.setGraphic(rentImage);
 
 
