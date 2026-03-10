@@ -11,6 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -37,12 +39,26 @@ public class TechRentalApp extends Application {
             System.exit(0);
         });
 
+        HBox searchBox = new HBox(10);
+        TextField searchName = new TextField();
+        searchName.setPromptText("Search");
+        searchBox.getChildren().add(searchName);
+        root.setTop(searchBox);
+
         TabPane tabPane = new TabPane();
 
         HomeTab homeTab = new HomeTab();
-        RentTab rentTab = new RentTab();
+
         AddItemTab addItemTab = new AddItemTab();
         AnalyticTab analyticTab = new AnalyticTab();
+
+
+        RentTab rentTab = new RentTab();
+        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/resources/images/rent.png")));
+        rentImage.setFitHeight(12);
+        rentImage.setFitWidth(12);
+        rentTab.setGraphic(rentImage);
+
 
         tabPane.getTabs().addAll(
                 homeTab,
@@ -59,11 +75,7 @@ public class TechRentalApp extends Application {
         root.setCenter(tabPane);
 
 
-        HBox searchBox = new HBox(10);
-        TextField searchName = new TextField();
-        searchName.setPromptText("Search");
-        searchBox.getChildren().add(searchName);
-        root.setTop(searchBox);
+
 
         Scene scene = new Scene (root, 500, 300);
         stage.setTitle("Tech Rental");
