@@ -5,10 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -38,6 +35,14 @@ public class TechRentalApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         BorderPane root = new BorderPane();
+
+        MenuBar menuBar = new MenuBar();
+
+        Menu menuFile = new Menu("File");
+        Menu menuHelp = new Menu("Help");
+
+        MenuItem menuExit = new MenuItem("Exit");
+        menuFile.getItems().add(menuExit);
 
         VBox sidetab = new VBox(10);
         sidetab.getChildren().addAll(
