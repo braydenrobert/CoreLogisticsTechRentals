@@ -7,16 +7,17 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import TechRental.tabs.AddItemTab;
 import TechRental.tabs.RemoveItemTab;
 
+import java.io.IOException;
+
 public class TechRentalApp extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws IOException {
         BorderPane root = new BorderPane();
 
         MenuBar menuBar = new MenuBar();
@@ -27,9 +28,7 @@ public class TechRentalApp extends Application {
         menuFile.getItems().add(menuExit);
 
         menuBar.getMenus().addAll(menuFile, menuCredits);
-        menuExit.setOnAction(e->{
-            System.exit(0);
-        });
+        menuExit.setOnAction(e-> System.exit(0));
 
         // Fixing for issue to be closed, better tab styling
         TabPane tabPane = new TabPane();
