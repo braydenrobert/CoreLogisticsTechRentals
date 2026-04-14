@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class RentTab extends Tab {
 
+    // class for item data
     public static class Items {
         private String name;
         private double price;
@@ -40,29 +41,36 @@ public class RentTab extends Tab {
 
         tableView = new TableView<>();
 
+        // sample data
         ArrayList<Items> dataItems = new ArrayList<>();
-        dataItems.add(new Items("NA", 0.00, "NA"));
-        dataItems.add(new Items("NA", 0.00, "NA"));
-        dataItems.add(new Items("NA", 0.00, "NA"));
+        dataItems.add(new Items("lappy", 4.00, "NA"));
+        dataItems.add(new Items("cell", 4.500, "NA"));
+        dataItems.add(new Items("headset", 7.00, "NA"));
 
+        // convert list to observable list
         inventory = FXCollections.observableArrayList(dataItems);
         tableView.setItems(inventory);
 
+        // name column
         TableColumn<Items, String> nameCol = new TableColumn<>("Name");
         nameCol.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getName()));
 
+        // price column
         TableColumn<Items, Double> priceCol = new TableColumn<>("Price");
         priceCol.setCellValueFactory(p -> new SimpleDoubleProperty(p.getValue().getPrice()).asObject());
 
+        // category column
         TableColumn<Items, String> categoryCol = new TableColumn<>("Category");
         categoryCol.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getCategory()));
 
+        // add columns to table
         tableView.getColumns().addAll(nameCol, priceCol, categoryCol);
 
-
+        // search field
         TextField searchName = new TextField();
         searchName.setPromptText("Item Name");
 
+        // filter table when typing
         searchName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == null || newValue.isEmpty()) {
                 tableView.setItems(inventory);
@@ -78,6 +86,7 @@ public class RentTab extends Tab {
             tableView.setItems(nameFilter);
         });
 
+        // layout
         VBox layout = new VBox(tableView, searchName);
         this.setContent(layout);
 
