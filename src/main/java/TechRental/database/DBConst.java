@@ -1,5 +1,9 @@
 package TechRental.database;
 
+/*
+Milestone Database
+ */
+
 public class DBConst {
     public static final String TABLE_ITEM = "tech_item";
     public static final String ITEM_COLUMN_ID = "id";

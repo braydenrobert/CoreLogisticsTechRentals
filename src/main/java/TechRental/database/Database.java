@@ -3,6 +3,10 @@ package TechRental.database;
 import static TechRental.database.Const.*;
 import java.sql.*;
 
+/*
+Milestone Database
+ */
+
 public class Database {
     private static Database instance;
     private Connection connection;
