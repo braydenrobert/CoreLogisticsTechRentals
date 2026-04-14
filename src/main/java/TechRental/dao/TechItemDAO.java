@@ -16,5 +16,5 @@ public interface TechItemDAO {
 
     void deleteItem(int id);
 
-    ArrayList<DisplayTechItem> getPrettyItems(); // Went back to teachers default naming for this as shown in lecture
+    ArrayList<DisplayTechItem> getStyleItems();
 }
