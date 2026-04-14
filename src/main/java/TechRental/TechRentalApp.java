@@ -37,26 +37,27 @@ public class TechRentalApp extends Application {
         AddItemTab addItemTab = new AddItemTab();
         RemoveItemTab removeItemTab = new RemoveItemTab();
 
+
         HomeTab homeTab = new HomeTab();
-        ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png")));
+        ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png"))); // Image
         homeImage.setFitHeight(24);
         homeImage.setFitWidth(24);
         homeTab.setGraphic(homeImage);
 
         RentTab rentTab = new RentTab();
-        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png")));
+        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png"))); // Image
         rentImage.setFitHeight(24);
         rentImage.setFitWidth(24);
         rentTab.setGraphic(rentImage);
 
         AdminTab adminTab = new AdminTab(rentTab, addItemTab, removeItemTab);
-        ImageView adminImage = new ImageView(new Image(getClass().getResourceAsStream("/images/admin.png")));
+        ImageView adminImage = new ImageView(new Image(getClass().getResourceAsStream("/images/admin.png"))); // Image
         adminImage.setFitHeight(24);
         adminImage.setFitWidth(24);
         adminTab.setGraphic(adminImage);
 
         AnalyticTab analyticTab = new AnalyticTab();
-        ImageView analyticImage = new ImageView(new Image(getClass().getResourceAsStream("/images/analytic.png")));
+        ImageView analyticImage = new ImageView(new Image(getClass().getResourceAsStream("/images/analytic.png"))); // Image
         analyticImage.setFitHeight(24);
         analyticImage.setFitWidth(24);
         analyticTab.setGraphic(analyticImage);
