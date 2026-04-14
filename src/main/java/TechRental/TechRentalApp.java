@@ -23,7 +23,6 @@ public class TechRentalApp extends Application {
 
         Menu menuFile = new Menu("File");
         Menu menuCredits = new Menu("Credits");
-
         MenuItem menuExit = new MenuItem("Exit");
         menuFile.getItems().add(menuExit);
 
@@ -32,7 +31,11 @@ public class TechRentalApp extends Application {
             System.exit(0);
         });
 
+        // Fixing for issue to be closed, better tab styling
         TabPane tabPane = new TabPane();
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+        tabPane.setSide(Side.LEFT);
+        tabPane.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
 
         AddItemTab addItemTab = new AddItemTab();
         RemoveItemTab removeItemTab = new RemoveItemTab();
@@ -68,15 +71,8 @@ public class TechRentalApp extends Application {
                 adminTab,
                 analyticTab
         );
-
-        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-
         root.setTop(menuBar);
-
-        tabPane.setSide(Side.LEFT);
         root.setCenter(tabPane);
-
-
 
 
         Scene scene = new Scene (root, 500, 300);
