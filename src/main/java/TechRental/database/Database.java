@@ -16,9 +16,10 @@ public class Database {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.
                     getConnection(
-                    "jdbc:mysql://localhost/" + DB_NAME + "?serverTimezone=UTC",
+                    "jdbc:mysql://php.scweb.ca/" + DB_NAME + "?useSSL=false",
+                    // switched over to scweb from local
                     DB_USER, DB_PASS);
-            System.out.println("✅ Database connection created");
+            System.out.println("Database connection created");
 
             createTable(DBConst.TABLE_CATEGORY, DBConst.CREATE_TABLE_CATEGORY, connection);
             createTable(DBConst.TABLE_ITEM, DBConst.CREATE_TABLE_ITEM, connection);

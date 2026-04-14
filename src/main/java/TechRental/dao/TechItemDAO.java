@@ -16,5 +16,5 @@ public interface TechItemDAO {
 
     void deleteItem(int id);
 
-    ArrayList<DisplayTechItem> getStyleItems();
+    ArrayList<DisplayTechItem> getPrettyItems(); // Way teacher shows inside powerpoint
 }
