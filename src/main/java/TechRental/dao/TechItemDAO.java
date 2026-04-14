@@ -16,5 +16,5 @@ public interface TechItemDAO {
 
     void deleteItem(int id);
 
-    ArrayList<DisplayTechItem> getPrettyItems();
+    ArrayList<DisplayTechItem> getStyleItems();
 }
