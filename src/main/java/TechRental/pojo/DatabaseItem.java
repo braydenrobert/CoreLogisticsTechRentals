@@ -1,7 +1,7 @@
 package TechRental.pojo;
 
 /*
- * File being used to not cause duplication for id.
+ * File being used to not cause duplication for id
  */
 
 public class DatabaseItem {
