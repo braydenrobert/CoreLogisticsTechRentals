@@ -23,7 +23,6 @@ public class TechRentalApp extends Application {
 
         Menu menuFile = new Menu("File");
         Menu menuCredits = new Menu("Credits");
-
         MenuItem menuExit = new MenuItem("Exit");
         menuFile.getItems().add(menuExit);
 
@@ -32,31 +31,36 @@ public class TechRentalApp extends Application {
             System.exit(0);
         });
 
+        // Fixing for issue to be closed, better tab styling
         TabPane tabPane = new TabPane();
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+        tabPane.setSide(Side.LEFT);
+        tabPane.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
 
         AddItemTab addItemTab = new AddItemTab();
         RemoveItemTab removeItemTab = new RemoveItemTab();
 
+
         HomeTab homeTab = new HomeTab();
-        ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png")));
+        ImageView homeImage = new ImageView(new Image(getClass().getResourceAsStream("/images/home.png"))); // Image
         homeImage.setFitHeight(24);
         homeImage.setFitWidth(24);
         homeTab.setGraphic(homeImage);
 
         RentTab rentTab = new RentTab();
-        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png")));
+        ImageView rentImage = new ImageView(new Image(getClass().getResourceAsStream("/images/rent.png"))); // Image
         rentImage.setFitHeight(24);
         rentImage.setFitWidth(24);
         rentTab.setGraphic(rentImage);
 
         AdminTab adminTab = new AdminTab(rentTab, addItemTab, removeItemTab);
-        ImageView adminImage = new ImageView(new Image(getClass().getResourceAsStream("/images/admin.png")));
+        ImageView adminImage = new ImageView(new Image(getClass().getResourceAsStream("/images/admin.png"))); // Image
         adminImage.setFitHeight(24);
         adminImage.setFitWidth(24);
         adminTab.setGraphic(adminImage);
 
         AnalyticTab analyticTab = new AnalyticTab();
-        ImageView analyticImage = new ImageView(new Image(getClass().getResourceAsStream("/images/analytic.png")));
+        ImageView analyticImage = new ImageView(new Image(getClass().getResourceAsStream("/images/analytic.png"))); // Image
         analyticImage.setFitHeight(24);
         analyticImage.setFitWidth(24);
         analyticTab.setGraphic(analyticImage);
@@ -67,15 +71,8 @@ public class TechRentalApp extends Application {
                 adminTab,
                 analyticTab
         );
-
-        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-
         root.setTop(menuBar);
-
-        tabPane.setSide(Side.LEFT);
         root.setCenter(tabPane);
-
-
 
 
         Scene scene = new Scene (root, 500, 300);

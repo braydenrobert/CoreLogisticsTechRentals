@@ -1,0 +1,35 @@
+/* no borders, nicer spacing and hover */
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: transparent;
+    -fx-tab-header-background: transparent;
+    -fx-tab-header-border: none;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 15px 0;
+}
+
+/* Selected tab */
+.tab-pane .tab:selected {
+    -fx-background-color: #e6f0ff;
+    -fx-border-color: transparent;
+}
+
+/* Icon area */
+.tab-pane .tab-label {
+    -fx-padding: 12px 0;
+}
+
+/* Make sure icons are centered and have nice size */
+.tab-pane .tab .graphic {
+    -fx-padding: 4px 0;
+}
